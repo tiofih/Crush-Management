@@ -2,7 +2,7 @@ import CrushController from './controller';
 import * as httpStatus from 'http-status';
 
 const sendResponse = function(res, statusCode, data){
-    res.status(statusCode).json({'result':data});
+    res.status(statusCode).json({result:data});
 }
 
 class CrushRoutes{
@@ -13,7 +13,10 @@ class CrushRoutes{
         CrushController
         .getAll()
         .then(crushs => sendResponse(res, httpStatus.OK, crushs))
-        .catch(err => console.error.bind(console, 'Erro: ' + err));
+        .catch(err => {
+            console.error.bind(console, 'Erro: ' + err);
+            sendResponse(res, httpStatus.INTERNAL_SERVER_ERROR, {});
+        });
     }
 
     getByID(req, res){
@@ -25,7 +28,10 @@ class CrushRoutes{
         CrushController
         .getByID(id)
         .then(crush => sendResponse(res, httpStatus.OK,crush))
-        .catch(err => console.error.bind(console, 'Erro: ' + err));
+        .catch(err => {
+            console.error.bind(console, 'Erro: ' + err);
+            sendResponse(res, httpStatus.INTERNAL_SERVER_ERROR, {});
+        });
     }
 
     create(req, res){
@@ -35,7 +41,10 @@ class CrushRoutes{
         CrushController
         .create(crush)
         .then(crush => sendResponse(res, httpStatus.CREATED, "Crush criado com amor!"))
-        .catch(err => console.error.bind(console, 'Erro: ' + err));
+        .catch(err => {
+            console.error.bind(console, 'Erro: ' + err);
+            sendResponse(res, httpStatus.INTERNAL_SERVER_ERROR, {});
+        });
     }
 
     update(req, res){
@@ -46,7 +55,10 @@ class CrushRoutes{
         CrushController
         .update(id, crush)
         .then(crush => sendResponse(res, httpStatus.OK, "Crush alterado!"))
-        .catch(err => console.error.bind(console, 'Erro: ' + err));
+        .catch((err) => {
+            console.error.bind(console, 'Erro: ' + err);
+            sendResponse(res, httpStatus.INTERNAL_SERVER_ERROR, {});
+        });
     }
 
     delete(req, res){
@@ -56,7 +68,10 @@ class CrushRoutes{
         CrushController
         .delete(id)
         .then(result => sendResponse(res, httpStatus.OK, result))
-        .catch(err => console.error.bind(console, 'Erro: ' + err));
+        .catch((err) => {
+            console.error.bind(console, 'Erro: ' + err);
+            sendResponse(res, httpStatus.INTERNAL_SERVER_ERROR, {});
+        });
     }
 }
 

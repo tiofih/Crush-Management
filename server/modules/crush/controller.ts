@@ -1,6 +1,6 @@
 import Crush from './repository';
 
-class CrushController{
+class CrushController {
     
     contructor(){}
 

@@ -1,3 +1,4 @@
+import * as cors from 'cors';
 import * as express from 'express';
 import * as morgan from 'morgan';
 import * as bodyParser from 'body-parser';
@@ -11,6 +12,8 @@ class App{
     private database: DataBase;
 
     constructor(){
+        dotenv.config();
+
         this.app = express();
         this.database = new DataBase();
         this.middleware();
@@ -27,14 +30,16 @@ class App{
     }
 
     middleware() {
+        this.app.use(cors());
         this.app.use(morgan('dev'));
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({extended:true}));
     }
 
     routes() {
-        this.app.route('/').get((req, res) => res.status(200).json({
-            'message':'Hello world!'
+        this.app
+            .route('/')
+            .get((req, res) => res.status(200).json({'message':'Hello world!'
         }));
         this.app.route('/api/crushs').get(CrushRoutes.getAll);
         this.app.route('/api/crushs/:id').get(CrushRoutes.getByID);

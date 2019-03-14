@@ -5,13 +5,15 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server.ts",
-    "start-dev": "NODE_ENV=development nodemon ./node_modules/.bin/ts-node ./server/server.ts"
+    "start": "node ./build/server.js",
+    "start-dev": "NODE_ENV=development nodemon -L --watch 'server/**/*.ts' --exec 'ts-node' ./server/server.ts"
   },
   "author": "Filipe Pinato Aguiar",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "eslint": "^5.15.1",
     "express": "^4.16.4",
     "http-status": "^1.3.1",
     "mongoose": "^5.4.19",
