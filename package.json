@@ -5,7 +5,7 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./node_modules/.bin/ts-node ./server/server.ts"
+    "start": "NODE_ENV=development nodemon ./node_modules/.bin/ts-node ./server/server.ts"
   },
   "author": "Filipe Pinato Aguiar",
   "license": "ISC",
