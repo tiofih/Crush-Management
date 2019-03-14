@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
+    "prestart": "next build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./build/server.js",
     "start-dev": "NODE_ENV=development nodemon -L --watch 'server/**/*.ts' --exec 'ts-node' ./server/server.ts"
