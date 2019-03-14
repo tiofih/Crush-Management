@@ -1,6 +1,7 @@
 import App from './app';
 
-App.app.listen(5000, ()=>console.log('servidor rodando, porta:5000'));
+var porta = process.env.PORT || 8080;
+App.app.listen(porta, ()=>console.log('servidor rodando, porta:5000'));
 
 process.once('SIGUSR2', () => App.closeDataBaseCOnnection('nodemon restart',
 () => process.kill(process.pid, 'SIGUSR2')));
