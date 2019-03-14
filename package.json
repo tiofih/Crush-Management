@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=development nodemon ./node_modules/.bin/ts-node ./server/server.ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Filipe Pinato Aguiar",
   "license": "ISC",
