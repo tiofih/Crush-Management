@@ -1,0 +1,30 @@
+{
+  "name": "crush-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development nodemon ./node_modules/.bin/ts-node ./server/server.ts"
+  },
+  "author": "Filipe Pinato Aguiar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "http-status": "^1.3.1",
+    "mongoose": "^5.4.19",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.1",
+    "@types/http-status": "^0.2.30",
+    "@types/mongoose": "^5.3.22",
+    "@types/morgan": "^1.7.35",
+    "@types/node": "^11.11.3",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.3333"
+  }
+}
